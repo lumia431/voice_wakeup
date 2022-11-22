@@ -11,6 +11,12 @@
      },
      addTask(params) {
         return axios.post(`/task/addTask`, qs.stringify(params))
+    },
+    editTask(params) {
+        return axios.post(`/task/editTask`, qs.stringify(params))
+    },
+    deleteTask(params) {
+        return axios.post(`/task/deleteTask`, qs.stringify(params))
     }
  }
  

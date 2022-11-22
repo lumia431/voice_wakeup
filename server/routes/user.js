@@ -14,7 +14,6 @@ router.post('/register', function (req, res, next) {
     user.email = "'" + req.body.email + "'"
     user.password = "'" + sha1(req.body.password) + "'"
     user.uuid = "'" + uuid + "'"
-    user.createtime = "'" + new Date().toLocaleString() + "'"
     user.token = "'" + createToken(user.email) + "'"
     dbmysql.query("select * from tbl_user where email = " + user.email, (error, results, fields) => {
         if (error) {
@@ -27,7 +26,7 @@ router.post('/register', function (req, res, next) {
         else {
             if (results == 0) {
                 sendMail(req.body.email, uuid)
-                dbmysql.query(`insert into tbl_user(uuid,password,email,createtime,token) values (${user.uuid},${user.password},${user.email},${user.createtime},${user.token})`
+                dbmysql.query(`insert into tbl_user(uuid,password,email,token) values (${user.uuid},${user.password},${user.email},${user.token})`
                     , (error, results, fields) => {
                         if (error) {
                             res.json({

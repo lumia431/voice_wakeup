@@ -3,11 +3,22 @@ const nodemailer=require('nodemailer')
 const url = require('../config/env')
 
 
-var transporter = nodemailer.createTransport('smtps://844727475@qq.com:xdvctlgofjdjbebc@smtp.qq.com');
+var transporter = nodemailer.createTransport({
+        host: 'smtp.qq.com',
+    //端口
+    port: 465,
+    secureConnection: true,
+    auth: {
+        // 发件人邮箱账号
+        user: '844727475@qq.com',
+        //发件人邮箱的授权码
+        pass: 'jgjqqadpvpjabdhj'
+    }
+});
 
 module.exports = function(email,code){
     var mailOptions = {   
-        from: "844727475@qq.com", //发信邮箱
+        from: '844727475@qq.com', //发信邮箱
         to: email, //接收者邮箱
         subject: "验证电子邮箱", //邮件主题
         text: "您好！",

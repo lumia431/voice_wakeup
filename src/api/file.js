@@ -6,11 +6,11 @@
  import qs from 'qs'; // 根据需求是否导入qs模块
  
  const files = {
-     getVoiceFile(params) {
-         return axios.get(`/file/voice`, qs.stringify(params))
+     getTrainFile(params) {
+         return axios.get(`/file/train`, qs.stringify(params))
      },
-     getNoiseFile(params) {
-         return axios.get(`/file/noise`, qs.stringify(params))
+     getDbFile(params){
+        return axios.get(`/file/db`, qs.stringify(params))
      }
  }
  

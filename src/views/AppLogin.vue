@@ -30,6 +30,7 @@
 
 <script>
 import loading from '../components/loading'
+import global from '@/common/global.js'
 export default {
     components: { loading },
     data() {
@@ -84,8 +85,11 @@ export default {
                         this.load = false
                         var json = JSON.parse(data);
                         if (json.status == 0) {
+
                             this.$store.dispatch('UserLogin', json.result.token)
                             this.$store.dispatch('UserName', json.result.email)
+                            global.mutex = json.result.email
+                            console.log('global.mutex = ' , json.result.email)
                             let redirect = decodeURIComponent(this.$route.query.redirect || '/');
                             this.$swal({
                                 position: 'top-end',

@@ -4,26 +4,30 @@ const fs = require('fs')
 const getFiles = require('../utils/getFiles')
 const path = require('path')
 
-router.get('/voice', function (req, res, next) {
+router.get('/train', function (req, res, next) {
     var filesList = new Array
-    getFiles(path.join(__dirname,'..','..','src/voice'),filesList)
+    getFiles(path.join(__dirname,'..','/train'),filesList)
+    var arr = new Array
+    filesList.forEach(item => arr.push({
+        voice:item
+    }))
     res.json({
         status: 0,
         msg: '查询成功',
-        result:filesList
+        result:arr
     })
 
 })
 
-router.get('/noise', function (req, res, next) {
+
+router.get('/db', function (req, res, next) {
     var filesList = new Array
-    getFiles(path.join(__dirname,'..','..','src/noise'),filesList)
+    getFiles(path.join(__dirname,'..','/db'),filesList)
     res.json({
         status: 0,
         msg: '查询成功',
         result:filesList
     })
-
 })
 
 module.exports = router;

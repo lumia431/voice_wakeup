@@ -7,16 +7,18 @@ export default {
             taskname: '',
             uuid: '',
             createtime: '',
-            voiceFile: '',
-            noiseFile: '',
+            dbPath: '',
             threadNum: '',
-            startFlg:false,
+            startFlg: false,
             progress: 0,
-            interval:0,
+            interval: 0,
             modelList: [],
+            sceneList: [],
+            psList: [],
             projectList: [],
-            wordList:[],
-            TPRConfig: []
+            wordList: [],
+            user_email: '',
+            voiceList: []
         },
         testData:
         {

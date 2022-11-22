@@ -10,6 +10,7 @@ import * as echarts from 'echarts'
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 Vue.use(ElementUi)

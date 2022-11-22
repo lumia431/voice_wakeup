@@ -189,14 +189,36 @@ export default {
             this.$swal("请先结束任务，再删除")
             return
           }
-          this.$swal(
-            'Deleted!',
-            '任务删除成功！',
-            'success'
-          )
-          this.$store.state.task.taskList.splice(this.$store.state.task.taskList.findIndex(item => item.uuid === task.uuid), 1)
-          this.taskData.taskList = this.$store.state.task.taskList
-          this.taskData.total = this.taskData.taskList.length
+          this.$api.task.deleteTask({ taskname: task.taskname }).then(({ data }) => {
+            var json = JSON.parse(data)
+            if (json.status == 0) {
+              this.$api.voice.deleteTaskVoice({ taskname: task.taskname }).then(({ data }) => {
+                var json = JSON.parse(data)
+                if (json.status == 0) {
+                  this.$swal(
+                    'Deleted!',
+                    '任务删除成功！',
+                    'success'
+                  )
+                }
+                else {
+                  this.$swal({
+                    icon: 'error',
+                    title: '删除任务失败',
+                    text: json.msg
+                  })
+                }
+              })
+            } else {
+              this.$swal({
+                icon: 'error',
+                title: '删除任务失败',
+                text: json.msg
+              })
+            }
+          })
+
+          this.getTaskData()
         }
       })
     },
@@ -210,10 +232,10 @@ export default {
         if (json.status == 0) {
           task.startFlg = true
           task.progress = 100
-          this.$store.state.task.curReport.set(task.taskname,{
-            voiceList:json.result,
-            progress:0,
-            reportData:[]
+          this.$store.state.task.curReport.set(task.taskname, {
+            voiceList: json.result,
+            progress: 0,
+            reportData: []
           })
           console.log(this.$store.state.task.curReport)
           task.interval = setInterval(() => {
@@ -228,7 +250,6 @@ export default {
           return
         }
       })
-
     },
     pauseTask(task) {
       task.startFlg = false

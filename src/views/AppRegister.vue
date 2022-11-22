@@ -122,7 +122,6 @@ export default {
                                 text: json.msg
                             })
                         }
-
                     })
                 } else {
                     console.log('error submit!!');

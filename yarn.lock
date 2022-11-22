@@ -2882,6 +2882,11 @@
   "resolved" "https://registry.npmmirror.com/dotenv/-/dotenv-10.0.0.tgz"
   "version" "10.0.0"
 
+"double-ended-queue@^2.1.0-0":
+  "integrity" "sha512-+BNfZ+deCo8hMNpDqDnvT+c0XpJ5cUa6mqYq89bho2Ifze4URTqRkcwR399hWoTrTkbZ/XJYDgP6rc7pRgffEQ=="
+  "resolved" "https://registry.npmjs.org/double-ended-queue/-/double-ended-queue-2.1.0-0.tgz"
+  "version" "2.1.0-0"
+
 "duplexer@^0.1.2":
   "integrity" "sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg=="
   "resolved" "https://registry.npmmirror.com/duplexer/-/duplexer-0.1.2.tgz"
@@ -2921,6 +2926,11 @@
     "normalize-wheel" "^1.0.1"
     "resize-observer-polyfill" "^1.5.0"
     "throttle-debounce" "^1.0.1"
+
+"emailjs@^3.0.1":
+  "integrity" "sha512-AOpQyi1op250n66ocgFQRkmsMcYAylmbBBfIQrwqv6OxuDSDG4Mr/7gROkKc7nNjLt0WycPRLRxiX1+XAhZJuQ=="
+  "resolved" "https://registry.npmjs.org/emailjs/-/emailjs-3.8.1.tgz"
+  "version" "3.8.1"
 
 "emoji-regex@^8.0.0":
   "integrity" "sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A=="
@@ -5409,6 +5419,25 @@
   "version" "3.6.0"
   dependencies:
     "picomatch" "^2.2.1"
+
+"redis-commands@^1.2.0":
+  "integrity" "sha512-nJWqw3bTFy21hX/CPKHth6sfhZbdiHP6bTawSgQBlKOVRG7EZkfHbbHwQJnrE4vsQf0CMNE+3gJ4Fmm16vdVlQ=="
+  "resolved" "https://registry.npmjs.org/redis-commands/-/redis-commands-1.7.0.tgz"
+  "version" "1.7.0"
+
+"redis-parser@^2.6.0":
+  "integrity" "sha512-9Hdw19gwXFBJdN8ENUoNVJFRyMDFrE/ZBClPicKYDPwNPJ4ST1TedAHYNSiGKElwh2vrmRGMoJYbVdJd+WQXIw=="
+  "resolved" "https://registry.npmjs.org/redis-parser/-/redis-parser-2.6.0.tgz"
+  "version" "2.6.0"
+
+"redis@^2.8.0":
+  "integrity" "sha512-M1OkonEQwtRmZv4tEWF2VgpG0JWJ8Fv1PhlgT5+B+uNq2cA3Rt1Yt/ryoR+vQNOQcIEgdCdfH0jr3bDpihAw1A=="
+  "resolved" "https://registry.npmjs.org/redis/-/redis-2.8.0.tgz"
+  "version" "2.8.0"
+  dependencies:
+    "double-ended-queue" "^2.1.0-0"
+    "redis-commands" "^1.2.0"
+    "redis-parser" "^2.6.0"
 
 "regenerate-unicode-properties@^10.0.1":
   "integrity" "sha512-vn5DU6yg6h8hP/2OkQo3K7uVILvY4iu0oI4t3HFa81UPkhGJwkRwM10JEc3upjdhHjs/k8GJY1sRBhk5sr69Bw=="

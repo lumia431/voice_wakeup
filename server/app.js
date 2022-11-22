@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const checkToken = require('./middleware/checkToken')
-
+const bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
@@ -12,6 +12,7 @@ var fileRouter = require('./routes/file');
 var taskRouter = require('./routes/task');
 var voiceRouter = require('./routes/voice');
 var reportRouter = require('./routes/report');
+var progressRouter = require('./routes/progress');
 
 var app = express();
 
@@ -24,7 +25,8 @@ app.all('*', function(req, res, next) {
     else next();
 });
 app.use(checkToken)
-
+app.use(bodyParser.urlencoded({ limit: '100mb', extended: true, parameterLimit: 100000 }))
+app.use(bodyParser.json({ limit: '100mb' }))
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -41,6 +43,7 @@ app.use('/file', fileRouter);
 app.use('/task', taskRouter);
 app.use('/voice', voiceRouter);
 app.use('/report', reportRouter);
+app.use('/progress', progressRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -14,14 +14,12 @@ var entity = {
     },
     task: {
         id:0,
-        uuid:'',
         taskname:'',
-        voiceFile:'',
-        noiseFile:'',
         createtime:'',
         threadNum:0,
         start_flg:0,
         modelList:'',
+        sceneList:'',
         projectList:'',
         wordList:'',
         user_email:'',
@@ -38,11 +36,8 @@ var entity = {
     },
     voice: {
         id:0,
-        voicename:'0',
-        task_uuid:'0',
-        model:'0',
-        project:'0',
-        word:'0',     
+        voice:'0',
+        task:'0',  
     },
 }
 

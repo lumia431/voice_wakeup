@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+import global from '@/common/global.js'
 Vue.use(VueRouter)
 
 const routes = [
@@ -195,9 +195,9 @@ router.beforeEach((to, from, next) => {
     let token = localStorage.getItem('token')
     if (to.meta.requireAuth) {
         if (token) {
+            global.mutex = localStorage.getItem('username')
             next()
         } else {
-
             next({
                 path: '/login',
                 query: { redirect: to.fullPath }

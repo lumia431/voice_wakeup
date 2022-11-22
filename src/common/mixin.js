@@ -18,20 +18,14 @@ export const userAddFormRulesMixin = {
         dbPath: [
           { required: true, message: '请输入db文件路径', trigger: 'blur' }
         ],
-        voiceFile: [
-          { required: true, message: '请输入语料文件', trigger: 'blur' },
-        ],
-        noiseFile: [
-          { required: true, message: '请输入噪声文件', trigger: 'blur' },
-        ],
         threadNum: [
           { required: true, message: '请输入线程数量', trigger: 'blur' },
         ],
         modelList: [
           { required: true, message: '请输入模型', trigger: 'blur' },
         ],
-        projectList: [
-          { required: true, message: '请输入仿真方式', trigger: 'blur' },
+        psList: [
+          { required: true, message: '请输入场景', trigger: 'blur' },
         ],
         wordList: [
           { required: true, message: '请输入唤醒词语', trigger: 'blur' },
